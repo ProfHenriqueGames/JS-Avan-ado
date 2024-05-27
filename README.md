@@ -1,2 +1,2 @@
-# JS-Avan-ado
+# JS-Avancado
 Desenvolvimento de GPS Geolocalização API
