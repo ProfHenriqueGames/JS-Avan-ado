@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass</title>
+    <style>
+        .compass {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 40px solid red;
+            transform-origin: 0 50%;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="compass">
+        <div class="arrow" id="arrow"></div>
+    </div>
+    <script>
+        const arrow = document.getElementById('arrow');
+
+        function updateCompass(direction) {
+            arrow.style.transform = `rotate(${direction}deg)`;
+        }
+
+        function getCurrentDirection() {
+            // Aqui você pode implementar a lógica para obter a direção atual, por exemplo, usando a API de Geolocalização.
+            // Por simplicidade, vamos apenas gerar um número aleatório entre 0 e 360 para simular a direção.
+            return Math.random() * 360;
+        }
+
+        function updateCompassDirection() {
+            const direction = getCurrentDirection();
+            updateCompass(direction);
+        }
+
+        // Atualiza a direção da bússola a cada segundo
+        setInterval(updateCompassDirection, 1000);
+    </script>
+</body>
+</html>

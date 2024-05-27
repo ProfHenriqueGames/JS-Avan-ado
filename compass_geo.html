@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass</title>
+    <style>
+        .compass {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 40px solid red;
+            transform-origin: 0 50%;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="compass">
+        <div class="arrow" id="arrow"></div>
+    </div>
+    <script>
+        const arrow = document.getElementById('arrow');
+
+        function updateCompass(direction) {
+            arrow.style.transform = `rotate(${direction}deg)`;
+        }
+
+        function updateCompassDirection(position) {
+            if (position.coords) {
+                const { heading } = position.coords;
+                updateCompass(heading);
+            }
+        }
+
+        function handleGeolocationError(error) {
+            console.error('Error getting geolocation:', error);
+        }
+
+        function getCurrentDirection() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(updateCompassDirection, handleGeolocationError);
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Atualiza a direção da bússola ao carregar a página
+        window.onload = getCurrentDirection;
+    </script>
+</body>
+</html>

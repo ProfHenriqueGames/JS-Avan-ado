@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Avançado</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="java"></p>
+    <p id="hostname"></p>
+    <p id="caminho"></p>
+
+    <script>
+        document.getElementById("hostname").innerHTML =
+        "Page hostname is " + window.location.hostname + " nada ";
+    </script>
+<script>document.getElementById("caminho").innerHTML =
+    "Page path is " + window.location.pathname;</script>
+
+<script>
+    document.getElementById("demo").innerHTML = 
+    "navigator.appName is " + navigator.appName;
+</script>
+
+<script>
+    document.getElementById("demo").innerHTML = 
+    "navigator.appName is " + navigator.appName;
+    </script>
+
+<script>
+    document.getElementById("java").innerHTML = navigator.javaEnabled();
+    </script>
+
+<script>
+    document.getElementById("demo").innerHTML =
+    "Browser inner window width: " + window.innerWidth + "px<br>" +
+    "Browser inner window height: " + window.innerHeight + "px";
+    </script>
+<script>
+window.open();
+</script>  
+
+<script>//window.moveTo();</script>
+
+<script>//window.resizeTo();</script>
+
+<script>
+    document.getElementById("demo").innerHTML = 
+    "Screen width is " + screen.width;
+</script>
+
+<script>document.getElementById("demo").innerHTML =
+    "Available Screen Width: " + screen.availWidth;</script>
+
+<script>document.getElementById("demo").innerHTML =
+    "Screen Color Depth: " + screen.colorDepth;</script>
+
+<script>
+    document.getElementById("demo").innerHTML =
+"Screen Pixel Depth: " + screen.pixelDepth;
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html>
